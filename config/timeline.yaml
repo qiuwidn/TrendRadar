@@ -396,7 +396,7 @@ presets:
 
 custom:
   name: "早晚推送"
-  description: "早上当前热点，晚上当日汇总，其他时间不推送"
+  description: "早上当前热点，晚上当日汇总，其他时间静默不消耗 token"
 
   once:
     analyze: true
@@ -411,6 +411,14 @@ custom:
       report_mode: "current"
       analyze: true
 
+    quiet_hours:
+      name: "白天静默"
+      start: "10:00"
+      end: "19:00"
+      push: false
+      analyze: false
+      collect: true
+
     evening_summary:
       name: "晚间汇总"
       start: "19:00"
@@ -420,9 +428,17 @@ custom:
       analyze: true
       ai_mode: "daily"
 
+    night_quiet:
+      name: "夜间静默"
+      start: "21:00"
+      end: "08:00"
+      push: false
+      analyze: false
+      collect: true
+
   day_plans:
     everyday:
-      periods: ["morning_brief", "evening_summary"]
+      periods: ["morning_brief", "quiet_hours", "evening_summary", "night_quiet"]
 
   week_map:
     1: "everyday"
