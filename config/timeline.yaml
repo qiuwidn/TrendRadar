@@ -397,7 +397,17 @@ presets:
 custom:
   name: "早晚推送"
   description: "早上当前热点，晚上当日汇总，其他时间静默不消耗 token"
-
+  
+  default:
+  collect: true
+  analyze: false
+  ai_mode: "current"
+  push: false
+  report_mode: "current"
+  once:
+    analyze: true
+    push: true
+  
   once:
     analyze: true
     push: true
